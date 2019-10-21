@@ -1,26 +1,27 @@
-#include <iostream>
-#include <chrono>
-#include <thread>
-#include "Animation.h"
+#include "Game.h"
+
+#ifdef _DEBUG 
+#pragma comment(lib,"sfml-graphics-d.lib") 
+#pragma comment(lib,"sfml-audio-d.lib") 
+#pragma comment(lib,"sfml-system-d.lib") 
+#pragma comment(lib,"sfml-window-d.lib") 
+#pragma comment(lib,"sfml-network-d.lib") 
+#else 
+#pragma comment(lib,"sfml-graphics.lib") 
+#pragma comment(lib,"sfml-audio.lib") 
+#pragma comment(lib,"sfml-system.lib") 
+#pragma comment(lib,"sfml-window.lib") 
+#pragma comment(lib,"sfml-network.lib") 
+#endif 
+#pragma comment(lib,"opengl32.lib") 
+#pragma comment(lib,"glu32.lib") 
+
+
 
 int main()
 {
-	Animation fsm; int i = 0;
-	std::chrono::milliseconds dura(1000);
+	Game game;
+	game.run();
 
-	while (true)
-	{
-		if (i == 0)
-		{
-			fsm.jumping();
-			std::this_thread::sleep_for(dura);
-			i = 1;
-		}
-		else
-		{
-			fsm.climbing();
-			std::this_thread::sleep_for(dura);
-			i = 0;
-		}
-	}
+	return 0;
 }

@@ -1,8 +1,7 @@
 #include "Animation.h"
 
-Animation::Animation()
+Animation::Animation() : m_current{ new Idle() }, m_previous{ new Idle() }
 {
-	m_current = new Idle();
 }
 
 void Animation::idle()

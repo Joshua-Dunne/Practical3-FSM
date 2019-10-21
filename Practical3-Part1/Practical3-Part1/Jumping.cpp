@@ -10,7 +10,14 @@ Jumping::~Jumping()
 
 void Jumping::idle(Animation* a)
 {
-	std::cout << "Going from Jumping to Idling" << std::endl;
+	std::cout << "Jumping -> Idling" << std::endl;
 	a->setCurrent(new Idle());
+	delete this;
+}
+
+void Jumping::climbing(Animation* a)
+{
+	std::cout << "Jumping -> Climbing" << std::endl;
+	a->setCurrent(new Climbing());
 	delete this;
 }

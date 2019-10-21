@@ -8,5 +8,6 @@ public:
 	Jumping();
 	~Jumping();
 	void idle(Animation* a);
+	void climbing(Animation* a);
 };
 
