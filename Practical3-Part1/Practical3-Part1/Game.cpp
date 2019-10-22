@@ -21,25 +21,20 @@ void Game::update()
 	{
 		if (event.type == sf::Event::Closed)
 			window.close();
+	}
 
-		switch (event.key.code)
-		{
-		case sf::Keyboard::Up:
-			fsm.jumping();
 
-			break;
-		case sf::Keyboard::Left:
-			fsm.climbing();
-
-			break;
-		case sf::Keyboard::Right:
-			fsm.idle();
-
-			break;
-		default:
-			break;
-		
-		}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		fsm.jumping();
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		fsm.climbing();
+	}
+	else
+	{
+		fsm.idle();
 	}
 }
 

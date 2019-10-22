@@ -19,5 +19,8 @@ public:
 	void idle();
 	void jumping();
 	void climbing();
+
+	bool m_jumping{ false };
+	bool m_climbing{ false };
 };
 
